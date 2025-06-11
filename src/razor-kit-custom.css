@@ -1,0 +1,76 @@
+/* razor-kit-custom.css */
+:root {
+  /* Button colors */
+  --wkit-accent-hs: 210, 100%; /* Blue when disconnected */
+  --wkit-on-accent-rgb: 255, 255, 255; /* White text */
+  
+  /* Connected state colors */
+  --wkit-connected-accent-hs: 120, 60%; /* Green when connected */
+  --wkit-connected-on-accent-rgb: 255, 255, 255;
+  
+  /* Button sizing */
+  --wkit-button-width: auto;
+  --wkit-border-radius: 8px;
+}
+
+/* Base button styles */
+.wkit-button {
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 16px !important;
+  border: none !important;
+  font-family: 'Inter', sans-serif !important;
+  transition: all 0.2s ease !important;
+}
+
+/* Disconnected state */
+.wkit-button:not(.wkit-connected) {
+  background: hsl(var(--wkit-accent-hs), 50%) !important;
+}
+
+/* Connected state */
+.wkit-button.wkit-connected {
+  background: hsl(var(--wkit-connected-accent-hs), 40%) !important;
+  padding-right: 12px !important;
+}
+
+/* Hide balance/price using the exact class */
+.wkit-connected-button__balance {
+  display: none !important;
+}
+
+/* Address container adjustments */
+.wkit-connected-button__address {
+  font-size: 13px !important;
+  font-family: 'Roboto Mono', monospace !important;
+  margin-left: 8px !important;
+  padding-left: 8px !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .wkit-button {
+    height: 36px !important;
+    padding: 0 12px !important;
+  }
+  
+  /* Truncated address on mobile */
+  .wkit-connected-button__address {
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .wkit-connected-button__address::before {
+    content: "0x";
+  }
+  
+  .wkit-connected-button__address::after {
+    content: attr(data-short-address);
+  }
+  
+  .wkit-connected-button__address span {
+    display: none;
+  }
+}
