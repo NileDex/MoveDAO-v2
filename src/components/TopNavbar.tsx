@@ -1,6 +1,6 @@
 // components/TopNavbar/TopNavbar.tsx
 import React from "react";
-import { FaBars, FaHome, FaChevronRight } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { ConnectButton } from "@razorlabs/razorkit";
 
 interface TopNavbarProps {
